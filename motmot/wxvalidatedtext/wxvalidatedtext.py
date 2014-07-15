@@ -1,5 +1,5 @@
 import wx
-__version__ = '0.5.3' # keep in sync with setup.py
+__version__ = '0.5.4' # keep in sync with setup.py
 
 def integer_validator(input_string):
     try:
@@ -71,6 +71,7 @@ class Validator:
             raise ValueError('did not understand state')
 
     def _fix_value(self,event):
+        event.Skip()
         value = self.ctrl.GetValue()
         if value != self.last_valid_value:
             if self.validator_func(value):
